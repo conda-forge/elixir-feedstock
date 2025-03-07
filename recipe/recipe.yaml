@@ -15,7 +15,8 @@ source:
 build:
   number: 0
   skip: win
-  script: make prefix=${PREFIX} install
+  script:
+    - make prefix=${PREFIX} install
 
 requirements:
   build:
