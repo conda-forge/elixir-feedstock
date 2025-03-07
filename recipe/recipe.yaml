@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: 1.18.3
+  erlang_min: "21.0"
 
 package:
   name: elixir
@@ -23,14 +24,20 @@ requirements:
     - git
     - make
   host:
-    - erlang >=21.0
+    - erlang ${{ erlang_min }}.*
   run:
-    - erlang >=21.0
+    - erlang >=${{ erlang_min }}
 
 tests:
-  - script:
+  - requirements:
+      run:
+        - erlang ${{ erlang_min }}.*
+    script:
       - elixir --version
       - mix --version
+  - script:
+    - elixir --version
+    - mix --version
 
 about:
   license: Apache-2.0
