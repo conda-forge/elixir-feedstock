@@ -3,8 +3,7 @@ schema_version: 1
 
 context:
   version: 1.18.3
-  erlang_min: "21.0"
-  build_erlang_min: "25.0"
+  erlang_min: "26.0"
 
 package:
   name: elixir
@@ -25,7 +24,7 @@ requirements:
     - git
     - make
   host:
-    - erlang >=${{ erlang_build_min }}
+    - erlang ${{ erlang_min }}.*
   run:
     - erlang >=${{ erlang_min }}
 
@@ -36,7 +35,10 @@ tests:
     script:
       - elixir --version
       - mix --version
-  - script:
+  - requirements:
+      run:
+        - erlang !=${{ erlang_min }}.*
+    script:
     - elixir --version
     - mix --version
 
