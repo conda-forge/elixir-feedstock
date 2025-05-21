@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 1.18.3
+  version: "1.18.4"
   # a few places _say_ 25.0, but not available on all conda-forge platforms
   erlang_min: "26"
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/elixir-lang/elixir/archive/v${{ version }}.tar.gz
-  sha256: f8d4376311058dd9a78ed365fa1df9fd1b22d2468c587e3f0f4fb320283a1ed7
+  sha256: 8e136c0a92160cdad8daa74560e0e9c6810486bd232fbce1709d40fcc426b5e0
 
 build:
   number: 0
@@ -40,8 +40,8 @@ tests:
       run:
         - erlang !=${{ erlang_min }}.*
     script:
-    - elixir --version
-    - mix --version
+      - elixir --version
+      - mix --version
 
 about:
   license: Apache-2.0
