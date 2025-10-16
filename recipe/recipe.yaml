@@ -3,7 +3,6 @@ schema_version: 1
 
 context:
   version: "1.19.0"
-  # a few places _say_ 25.0, but not available on all conda-forge platforms
   erlang_min: "26"
 
 package:
@@ -45,7 +44,9 @@ tests:
 
 about:
   license: Apache-2.0
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - LICENSES
   summary: Elixir is a dynamic, functional language designed for building scalable and maintainable applications
   homepage: https://elixir-lang.org
   repository: https://github.com/elixir-lang/elixir
