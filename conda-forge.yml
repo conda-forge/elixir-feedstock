@@ -1,6 +1,12 @@
 build_platform:
   linux_ppc64le: linux_64
-  # TODO: figure out `make: erlc: Bad CPU type in executable`
+  # TODO: figure out
+  #   Compiling lib/module/types/descr.ex (it's taking more than 10s)
+  #   make: *** [Makefile:105: lib/elixir/ebin/Elixir.Kernel.beam] Segmentation fault (core dumped)
+  #   make: *** Deleting file 'lib/elixir/ebin/Elixir.Kernel.beam'
+  # linux_aarch64: linux64
+  # TODO: figure out
+  #   `make: erlc: Bad CPU type in executable`
   # osx_arm64: osx_64
 conda_build:
   pkg_format: '2'
@@ -9,6 +15,4 @@ conda_forge_output_validation: true
 github:
   branch_name: main
   tooling_branch_name: main
-provider:
-  linux_aarch64: default
 test: native_and_emulated
