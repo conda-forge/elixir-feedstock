@@ -3,7 +3,6 @@ schema_version: 1
 
 context:
   version: "1.19.0"
-  erlang_min: "26"
 
 package:
   name: elixir
@@ -14,7 +13,7 @@ source:
   sha256: 99a684045b49f9c5005a1aa8278e1bac8c3769e0a5a13c05ef80b69113029234
 
 build:
-  number: 0
+  number: 1
   skip: win
   script:
     - make prefix=${PREFIX} install
@@ -37,7 +36,7 @@ tests:
       - mix --version
   - requirements:
       run:
-        - erlang !=${{ erlang_min }}.*
+        - erlang >=${{ erlang_min }},!=${{ erlang_min }}.*
     script:
       - elixir --version
       - mix --version
