@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.19.0"
+  version: "1.19.1"
 
 package:
   name: elixir
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/elixir-lang/elixir/archive/v${{ version }}.tar.gz
-  sha256: 99a684045b49f9c5005a1aa8278e1bac8c3769e0a5a13c05ef80b69113029234
+  sha256: 4dfbfa2d0863bb3809109757a599b453e78ea890f31fa54456a2d81b40bc930f
 
 build:
-  number: 1
+  number: 0
   skip: win
   script:
     - make prefix=${PREFIX} install
