@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: "1.19.5"
+  erlang_min: "26"
 
 package:
   name: elixir
@@ -13,7 +14,7 @@ source:
   sha256: 10750b8bd74b10ac1e25afab6df03e3d86999890fa359b5f02aa81de18a78e36
 
 build:
-  number: 0
+  number: 1
   skip: win
   script:
     - make prefix=${PREFIX} install
