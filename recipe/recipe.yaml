@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.20.0"
+  version: "1.20.1"
   erlang_min: "27"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/elixir-lang/elixir/archive/v${{ version }}.tar.gz
-  sha256: 70f6cb721f238fa5dd33eb29aa5b19e5ccc3807e41cd5f9b65d5c715b669438c
+  sha256: baed8756da722c1b8d71613655c7223ab952051bc391a965cd79e320a93aaf77
 
 build:
   number: 0
