@@ -2,8 +2,11 @@
 schema_version: 1
 
 context:
-  version: "1.20.4"
+  version: "1.20.5"
+  # see CHECK_ERLANG_RELEASE in Makefile
   erlang_min: "27"
+  # a known latest major from erlang-feedstock
+  erlang_check_max: "29"
 
 package:
   name: elixir
@@ -11,7 +14,7 @@ package:
 
 source:
   url: https://github.com/elixir-lang/elixir/archive/v${{ version }}.tar.gz
-  sha256: 2f87be1702583ecbeee82c0ad4d6353de96463cfa0fa6e7557e05f68d90da869
+  sha256: 3d99f2e129418800817e0e5a3ce4812c34537a32d50e37578189e90c79de7062
 
 build:
   number: 0
@@ -29,6 +32,17 @@ requirements:
     - erlang >=${{ erlang_min }}
 
 tests:
+  - package_contents:
+      strict: true
+      bin:
+        - elixir
+        - elixirc
+        - iex
+        - mix
+      files:
+        - lib/elixir/**
+        - share/man/man1/{elixir,elixirc,iex,mix}.1
+
   - requirements:
       run:
         - erlang ${{ erlang_min }}.*
@@ -37,7 +51,7 @@ tests:
       - mix --version
   - requirements:
       run:
-        - erlang >=${{ erlang_min }},!=${{ erlang_min }}.*
+        - erlang ${{ erlang_check_max }}.*
     script:
       - elixir --version
       - mix --version
